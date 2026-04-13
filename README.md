@@ -17,3 +17,17 @@ This project acts as an autonomous digital assistant that reads a list of tasks,
    ```bash
    git clone [https://github.com/jemmziray-tech/ai-email-agent.git](https://github.com/jemmziray-tech/ai-email-agent.git)
    cd ai-email-agent
+
+2. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+
+3. **Environment Setup:**
+   ```bash
+   -Rename .env.example to .env.
+   -Add your Google Gemini API key to the .env file.
+   -Place your Google Cloud credentials.json file in the root directory (for Gmail API access).
+
+4. **Run the Agent:**
+   ```bash
+   python main.py
