@@ -38,9 +38,9 @@ The agent follows a modular workflow to ensure data privacy and processing effic
 
 ## ⚙️ Setup Instructions
 
-1. Clone the Repository
+1. **Clone the Repository**
 ```bash
-git clone [https://github.com/jemmziray-tech/ai-email-agent.git](https://github.com/jemmziray-tech/ai-email-agent.git)
+git clone https://github.com/jemmziray-tech/ai-email-agent.git
 cd ai-email-agent
 
 2. **Install dependencies:**
