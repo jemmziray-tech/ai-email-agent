@@ -1,0 +1,19 @@
+# Google API Secrets
+credentials.json
+token.json
+
+# Virtual Environments
+.venv/
+env/
+
+# Python Cache 
+__pycache__/
+*.pyc
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Google API Secrets
+credentials.json
+token.json
+.env
