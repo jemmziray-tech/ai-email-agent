@@ -1,5 +1,3 @@
-# 🤖 AI To-Do Email Automation Agent
-
 <p align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=9B59B6&center=true&vCenter=true&width=435&lines=🤖+AI+Email+Automation+Agent;🚀+Powered+by+Gemini+Flash;✉️+Seamless+Gmail+Integration" alt="Typing SVG" />
 </p>
