@@ -1,4 +1,5 @@
 import os
+import json
 import base64
 from email.message import EmailMessage
 from google.auth.transport.requests import Request
@@ -28,11 +29,10 @@ SCOPES = ["https://www.googleapis.com/auth/gmail.send"]
 # ==========================================
 
 
-def generate_email_draft(task_name, recipient_email):
+# Accept the actual name directly!
+def generate_email_draft(task_name, client_name):
     """Uses Gemini to generate a personalized email based on a task."""
-    client_name = (
-        "client"  # In a real scenario, you'd extract this from your CRM or task data
-    )
+
     print(f"🧠 Drafting custom email for: '{client_name}'...")
 
     prompt = f"Write a short, professional follow-up email addressed to '{client_name}' regarding this task: '{task_name}'. Do not include a Subject line. Sign the email as 'Your Market Manager'."
@@ -85,29 +85,37 @@ def send_email_api(draft_text, recipient_email):
 def main():
     print("🚀 Starting AI Email Agent...\n")
 
-    # Define our data
-    tasks = [
-        {
-            "name": "Ads performance is down. Please follow up with the client and offer assistance to improve results.",
-            "due_date": "2026-04-20",
-        }
-    ]
-    target_emails = ["mzirayjohn4@gmail.com", "john@nm-aist.ac.tz"]
+    # 1. Load Data from the JSON file
+    try:
+        with open("data.json", "r") as file:
+            data = json.load(file)
 
-    # Grab the current task
-    current_task = tasks[-1]
+        # Replace target_emails with targets
+        tasks = data["tasks"]
+        targets = data["targets"]
+        print(f"📂 Loaded {len(tasks)} task(s) and {len(targets)} target(s).")
+    except FileNotFoundError:
+        print("❌ Error: Could not find 'data.json'. Please create it.")
+        return  # Stop the program if there is no data
 
-    # The Automation Loop
-    for email in target_emails:
+    # 2. Grab the current task (we'll just grab the first one for now)
+    current_task = tasks[0]
+
+    # 3. The Automation Loop
+    for target in targets:
         print("-" * 40)
-        # 1. Draft
-        custom_draft = generate_email_draft(current_task["name"], email)
-        # 2. Send
-        send_email_api(custom_draft, email)
+        # Extract the specific details for this person
+        person_name = target["name"]
+        person_email = target["email"]
+
+        # Draft (Pass the Name)
+        custom_draft = generate_email_draft(current_task["name"], person_name)
+
+        # Send (Pass the Email)
+        send_email_api(custom_draft, person_email)
 
     print("\n🎉 All tasks complete. Shutting down Agent.")
 
 
-# This tells Python to run the main() function when we start the script
 if __name__ == "__main__":
     main()

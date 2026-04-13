@@ -1,0 +1,18 @@
+{
+  "tasks": [
+    {
+      "name": "Ads performance is down. Please follow up with the client and offer assistance to improve results.",
+      "due_date": "2026-04-20"
+    }
+  ],
+  "targets": [
+    {
+      "name": "John", 
+      "email": "mzirayjohn4@gmail.com"
+    },
+    {
+      "name": "Professor Mziray", 
+      "email": "john@nm-aist.ac.tz"
+    }
+  ]
+}
