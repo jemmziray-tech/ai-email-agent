@@ -15,7 +15,8 @@ This project acts as an autonomous digital assistant that reads a list of tasks,
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/jemmziray-tech/ai-email-agent.git cd ai-email-agent
+   git clone https://github.com/jemmziray-tech/ai-email-agent.git
+   cd ai-email-agent
 
 2. **Install dependencies:**
    ```bash
